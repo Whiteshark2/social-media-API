@@ -1,6 +1,7 @@
 const bcrypt=require('bcryptjs')
 const User=require('../models/User')
 const asyncHandler=require('express-async-handler')
+const {generateToken}=require('../config/generateToken')
 
 module.exports.register=asyncHandler(async(req,res)=>{
     const {username,email,password}=req.body
@@ -34,9 +35,14 @@ module.exports.login=asyncHandler(async(req,res)=>{
         id: user._id,
         username: user.username,
         email: user.email,
+        token:generateToken(user._id)
         })
     }else{
         res.status(401)
         throw new Error('Invalid Email/Password')
     }
+})
+
+module.exports.update=asyncHandler(async(req,res)=>{
+    
 })
