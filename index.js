@@ -6,12 +6,13 @@ const morgan=require('morgan')
 const errorHandler=require('./config/errorMiddleware')
 require('./config/mongoose')
 
-
+// app.use(errorHandler.error)
+// app.use(errorHandler.errorStatus)
 app.use(express.json())
 app.use(express.urlencoded())
+
 app.use('/api',require('./routes'))
-app.use(errorHandler.error)
-app.use(errorHandler.errorStatus)
+
 
 
 
