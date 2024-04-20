@@ -3,7 +3,6 @@ const User=require('../models/User')
 const asyncHandler=require('express-async-handler')
 
 
-console.log(process.env.JWT_SECRET)
 
 module.exports.protect= asyncHandler(async(req,res,next)=>{
     let token
