@@ -10,6 +10,7 @@ require('./config/mongoose')
 // app.use(errorHandler.errorStatus)
 app.use(express.json())
 app.use(express.urlencoded())
+app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use('/api',require('./routes'))
 
